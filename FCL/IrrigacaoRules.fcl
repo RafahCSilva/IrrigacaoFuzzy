@@ -1,0 +1,80 @@
+FUNCTION_BLOCK irrigacao
+
+VAR_INPUT	
+	umidade : REAL;
+	temperatura: REAL;
+	estagio: REAL;
+END_VAR
+
+VAR_OUTPUT	
+	tempo: REAL;
+END_VAR
+
+// Fuzzify input variable 'umidade': {'muito alta', 'alta' , 'media' , 'baixa' , 'muito baixa'}
+FUZZIFY umidade 	
+	TERM muito_baixa	:= (0, 1) (20, 1) (35, 0); 
+	TERM baixa 		:= (20, 0) (35, 1) (40, 1) (55, 0);
+	TERM media 		:= (35, 0) (50, 1) (55, 1) (70, 0);
+	TERM alta  		:= (50, 0) (65, 1) (70, 1) (85, 0);
+	TERM muito_alta 	:= (65, 0) (80, 1) (100, 1);
+END_FUZZIFY
+
+// Fuzzify input variable 'temperatura': {'muito alta', 'alta' , 'media' , 'baixa' , 'muito baixa'}
+FUZZIFY temperatura			
+	TERM muito_baixa	:= (0, 1) (15, 1) (25, 0); 
+	TERM baixa 		:= (15, 0) (22.5, 1) (30, 0);
+	TERM media 		:= (22.5, 0) (30, 1) (37.5, 0);
+	TERM alta  		:= (30, 0) (37.5, 1) (45, 0);
+	TERM muito_alta 	:= (37.5, 0) (45, 1) (50, 1);
+END_FUZZIFY
+
+// Fuzzify input variable 'estagio': {'crescimento' , 'desenvolvimento' , 'maturacao'}
+FUZZIFY estagio			
+	TERM crescimento	:= (0, 1) (30, 1) (60, 0); 
+	TERM desenvolvimento	:= (30, 0) (60, 1) (90, 0); 
+	TERM maturacao		:= (60, 0) (90, 1) (100, 1); 
+END_FUZZIFY
+
+// Defuzzzify output variable 'tempo' : {'muito curto', 'curto' , 'medio' , 'longo' , 'muito longo'}
+DEFUZZIFY tempo			
+	TERM muito_curto	:= (0, 1) (3.3, 1) (6.6, 0); 
+	TERM curto 		:= (3.3, 0) (6.6, 1) (10, 0);
+	TERM medio 		:= (6.6, 0) (10, 1) (13.3, 0);
+	TERM longo  		:= (10, 0) (13.3, 1) (16.6, 0);
+	TERM muito_longo 	:= (13.3, 0) (16.6, 1) (20, 1);
+	METHOD : COG;		// Use 'Center Of Gravity' defuzzification method
+	DEFAULT := 0;		// Default value is 0 (if no rule activates defuzzifier)
+END_DEFUZZIFY
+
+RULEBLOCK No1
+	AND : MIN;	// Use 'min' for 'and' (also implicit use 'max' for 'or' to fulfill DeMorgans Law)
+	ACT : MIN;	// Use 'min' activation method
+	ACCU : MAX;	// Use 'max' accumulation method
+	RULE 1 : IF estagio IS crescimento AND umidade IS muito_baixa AND temperatura IS muito_baixa THEN tempo IS curto;
+	RULE 2 : IF estagio IS crescimento AND umidade IS muito_baixa AND temperatura IS baixa THEN tempo IS medio;
+	RULE 3 : IF estagio IS crescimento AND umidade IS muito_baixa AND temperatura IS media THEN tempo IS longo;
+	RULE 4 : IF estagio IS crescimento AND umidade IS muito_baixa AND temperatura IS alta THEN tempo IS longo;
+	RULE 5 : IF estagio IS crescimento AND umidade IS muito_baixa AND temperatura IS muito_alta THEN tempo IS muito_longo;
+	RULE 6 : IF estagio IS crescimento AND umidade IS baixa AND temperatura IS muito_baixa THEN tempo IS medio;
+	RULE 7 : IF estagio IS crescimento AND umidade IS baixa AND temperatura IS baixa THEN tempo IS medio;
+	RULE 8 : IF estagio IS crescimento AND umidade IS baixa AND temperatura IS media THEN tempo IS medio;
+	RULE 9 : IF estagio IS crescimento AND umidade IS baixa AND temperatura IS alta THEN tempo IS medio;
+	RULE 10 : IF estagio IS crescimento AND umidade IS baixa AND temperatura IS muito_alta THEN tempo IS longo;
+	RULE 11 : IF estagio IS crescimento AND umidade IS media AND temperatura IS muito_baixa THEN tempo IS curto;
+	RULE 12 : IF estagio IS crescimento AND umidade IS media AND temperatura IS baixa THEN tempo IS curto;
+	RULE 13 : IF estagio IS crescimento AND umidade IS media AND temperatura IS media THEN tempo IS curto;
+	RULE 14 : IF estagio IS crescimento AND umidade IS media AND temperatura IS alta THEN tempo IS curto;
+	RULE 15 : IF estagio IS crescimento AND umidade IS media AND temperatura IS muito_alta THEN tempo IS medio;
+	RULE 16 : IF estagio IS crescimento AND umidade IS alta AND temperatura IS muito_baixa THEN tempo IS muito_curto;
+	RULE 17 : IF estagio IS crescimento AND umidade IS alta AND temperatura IS baixa THEN tempo IS muito_curto;
+	RULE 18 : IF estagio IS crescimento AND umidade IS alta AND temperatura IS media THEN tempo IS muito_curto;
+	RULE 19 : IF estagio IS crescimento AND umidade IS alta AND temperatura IS alta THEN tempo IS muito_curto;
+	RULE 20 : IF estagio IS crescimento AND umidade IS alta AND temperatura IS muito_alta THEN tempo IS muito_curto;
+	RULE 21 : IF estagio IS crescimento AND umidade IS muito_alta AND temperatura IS muito_baixa THEN tempo IS muito_curto;
+	RULE 22 : IF estagio IS crescimento AND umidade IS muito_alta AND temperatura IS baixa THEN tempo IS muito_curto;
+	RULE 23 : IF estagio IS crescimento AND umidade IS muito_alta AND temperatura IS media THEN tempo IS muito_curto;
+	RULE 24 : IF estagio IS crescimento AND umidade IS muito_alta AND temperatura IS alta THEN tempo IS muito_curto;
+	RULE 25 : IF estagio IS crescimento AND umidade IS muito_alta AND temperatura IS muito_alta THEN tempo IS muito_curto;
+END_RULEBLOCK
+
+END_FUNCTION_BLOCK
