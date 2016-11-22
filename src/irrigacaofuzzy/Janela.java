@@ -5,6 +5,13 @@
  */
 package irrigacaofuzzy;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.JSlider;
+
 /**
  *
  * @author Rafah
@@ -27,57 +34,294 @@ public class Janela extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        buttonGroup1 = new javax.swing.ButtonGroup();
-        buttonGroup2 = new javax.swing.ButtonGroup();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jRadioButton4 = new javax.swing.JRadioButton();
-        jRadioButton5 = new javax.swing.JRadioButton();
-        jRadioButton6 = new javax.swing.JRadioButton();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jSlider1 = new javax.swing.JSlider();
-        jSlider2 = new javax.swing.JSlider();
-        jSlider3 = new javax.swing.JSlider();
+        buttonGroupX = new javax.swing.ButtonGroup();
+        buttonGroupY = new javax.swing.ButtonGroup();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        lblX = new javax.swing.JLabel();
+        lblY = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jRadioButton_EstX = new javax.swing.JRadioButton();
+        jRadioButton_TempX = new javax.swing.JRadioButton();
+        jRadioButton_UmidX = new javax.swing.JRadioButton();
+        jRadioButton_EstY = new javax.swing.JRadioButton();
+        jRadioButton_TempY = new javax.swing.JRadioButton();
+        jRadioButton_UmidY = new javax.swing.JRadioButton();
+        lblEstagio = new javax.swing.JLabel();
+        lblTemperatura = new javax.swing.JLabel();
+        lblUmidade = new javax.swing.JLabel();
+        lblEstagioValue = new javax.swing.JLabel();
+        lblTemperaturaValue = new javax.swing.JLabel();
+        lblUmidadeValue = new javax.swing.JLabel();
+        jSliderEstagio = new javax.swing.JSlider();
+        jSliderTemperatura = new javax.swing.JSlider();
+        jSliderUmidade = new javax.swing.JSlider();
+        jPanel3 = new javax.swing.JPanel();
+        btnGerarGraficos = new javax.swing.JButton();
+        btnGerarImagem = new javax.swing.JButton();
+        nomes = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Sistema de Irrigação Fuzzy");
 
-        jLabel1.setText("jLabel1");
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel2.setText("jLabel2");
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setText("Sistema de Irrigação Fuzzy");
 
-        jLabel3.setText("jLabel3");
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
 
-        buttonGroup1.add(jRadioButton1);
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        buttonGroup1.add(jRadioButton2);
+        lblX.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblX.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblX.setText("X");
 
-        buttonGroup1.add(jRadioButton3);
+        lblY.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblY.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblY.setText("Y");
 
-        buttonGroup2.add(jRadioButton4);
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setText("Selecione os valores medidos");
 
-        buttonGroup2.add(jRadioButton5);
+        buttonGroupX.add(jRadioButton_EstX);
+        jRadioButton_EstX.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jRadioButton_EstX.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        buttonGroup2.add(jRadioButton6);
+        buttonGroupX.add(jRadioButton_TempX);
+        jRadioButton_TempX.setSelected(true);
+        jRadioButton_TempX.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jRadioButton_TempX.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("X");
+        buttonGroupX.add(jRadioButton_UmidX);
+        jRadioButton_UmidX.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jRadioButton_UmidX.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("Y");
+        buttonGroupY.add(jRadioButton_EstY);
+        jRadioButton_EstY.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jRadioButton_EstY.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jSlider1.setPaintTicks(true);
-        jSlider1.setToolTipText("");
+        buttonGroupY.add(jRadioButton_TempY);
+        jRadioButton_TempY.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jRadioButton_TempY.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jSlider2.setPaintTicks(true);
+        buttonGroupY.add(jRadioButton_UmidY);
+        jRadioButton_UmidY.setSelected(true);
+        jRadioButton_UmidY.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jRadioButton_UmidY.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jSlider3.setPaintTicks(true);
+        lblEstagio.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblEstagio.setText("Estágio:");
+
+        lblTemperatura.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblTemperatura.setText("Temperatura:");
+
+        lblUmidade.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblUmidade.setText("Umidade:");
+
+        lblEstagioValue.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblEstagioValue.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblEstagioValue.setText("50");
+
+        lblTemperaturaValue.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblTemperaturaValue.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblTemperaturaValue.setText("25");
+
+        lblUmidadeValue.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblUmidadeValue.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblUmidadeValue.setText("50");
+
+        jSliderEstagio.setMajorTickSpacing(10);
+        jSliderEstagio.setMinorTickSpacing(5);
+        jSliderEstagio.setPaintLabels(true);
+        jSliderEstagio.setPaintTicks(true);
+        jSliderEstagio.setToolTipText("");
+        jSliderEstagio.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jSliderEstagioStateChanged(evt);
+            }
+        });
+
+        jSliderTemperatura.setMajorTickSpacing(10);
+        jSliderTemperatura.setMaximum(50);
+        jSliderTemperatura.setMinorTickSpacing(5);
+        jSliderTemperatura.setPaintLabels(true);
+        jSliderTemperatura.setPaintTicks(true);
+        jSliderTemperatura.setValue(25);
+        jSliderTemperatura.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jSliderTemperaturaStateChanged(evt);
+            }
+        });
+
+        jSliderUmidade.setMajorTickSpacing(10);
+        jSliderUmidade.setMinorTickSpacing(5);
+        jSliderUmidade.setPaintLabels(true);
+        jSliderUmidade.setPaintTicks(true);
+        jSliderUmidade.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jSliderUmidadeStateChanged(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(186, 186, 186)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lblEstagioValue, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
+                            .addComponent(lblTemperaturaValue, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
+                            .addComponent(lblUmidadeValue, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jSliderTemperatura, javax.swing.GroupLayout.DEFAULT_SIZE, 392, Short.MAX_VALUE)
+                            .addComponent(jSliderEstagio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jSliderUmidade, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap())
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jRadioButton_EstX, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lblX, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jRadioButton_EstY, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lblY, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(lblEstagio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(jPanel2Layout.createSequentialGroup()
+                                    .addComponent(jRadioButton_TempX, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(6, 6, 6)
+                                    .addComponent(jRadioButton_TempY, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel2Layout.createSequentialGroup()
+                                    .addComponent(jRadioButton_UmidX, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jRadioButton_UmidY, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(lblTemperatura, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblUmidade, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jSliderEstagio, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jSliderTemperatura, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jSliderUmidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(lblEstagioValue, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblTemperaturaValue, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblUmidadeValue, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblX, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblY, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jRadioButton_EstX, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jRadioButton_EstY, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblEstagio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jRadioButton_TempY, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jRadioButton_TempX, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblTemperatura, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jRadioButton_UmidY, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jRadioButton_UmidX, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblUmidade, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+
+        jPanel2Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jSliderEstagio, jSliderTemperatura, jSliderUmidade, lblEstagioValue, lblTemperaturaValue, lblUmidadeValue});
+
+        btnGerarGraficos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/irrigacaofuzzy/icons/fa-area-chart_48.png"))); // NOI18N
+        btnGerarGraficos.setText("<html> Gerar  <br /> Graficos </html>");
+        btnGerarGraficos.setToolTipText("Clique aqui para gerar todos os gráficos das variaveis fuzzy.");
+        btnGerarGraficos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGerarGraficosActionPerformed(evt);
+            }
+        });
+
+        btnGerarImagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/irrigacaofuzzy/icons/fa-picture-o_48.png"))); // NOI18N
+        btnGerarImagem.setText("<html> Gerar Imagem <br /> de Densidade </html>");
+        btnGerarImagem.setToolTipText("Clique aqui para gerar o gráfico de densidade com duas variáveis.");
+        btnGerarImagem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGerarImagemActionPerformed(evt);
+            }
+        });
+
+        nomes.setText("<html>\nDesenvolvido por:<br>\n<b>Erick Augusto Cruz<br>\nRafael Cardoso da Silva</b>\n</html>");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(nomes)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnGerarGraficos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnGerarImagem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnGerarGraficos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnGerarImagem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(nomes))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -85,74 +329,121 @@ public class Janela extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jRadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jRadioButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabel1)
-                        .addGap(24, 24, 24)
-                        .addComponent(jSlider1, javax.swing.GroupLayout.DEFAULT_SIZE, 469, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jRadioButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(6, 6, 6)
-                                .addComponent(jRadioButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jRadioButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jRadioButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel2))
-                        .addGap(22, 22, 22)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSlider2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jSlider3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(45, 45, 45)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jRadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jRadioButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jRadioButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jRadioButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSlider2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jRadioButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSlider3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jRadioButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(9, 9, 9)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
+    private void btnGerarGraficosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGerarGraficosActionPerformed
+        int estagio = jSliderEstagio.getValue();
+        int temperatura = jSliderTemperatura.getValue();
+        int umidade = jSliderUmidade.getValue();
+        try {
+            FCL.FUZZY(estagio, temperatura, umidade);
+        } catch (Exception ex) {
+            Logger.getLogger(Janela.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnGerarGraficosActionPerformed
+
+    private String qlTaSelectedX() {
+        if (jRadioButton_EstX.isSelected()) {
+            return "estagio";
+        }
+        if (jRadioButton_TempX.isSelected()) {
+            return "temperatura";
+        }
+        if (jRadioButton_UmidX.isSelected()) {
+            return "umidade";
+        }
+        return "";
+    }
+
+    private String qlTaSelectedY() {
+        if (jRadioButton_EstY.isSelected()) {
+            return "estagio";
+        }
+        if (jRadioButton_TempY.isSelected()) {
+            return "temperatura";
+        }
+        if (jRadioButton_UmidY.isSelected()) {
+            return "umidade";
+        }
+        return "";
+    }
+
+    private void btnGerarImagemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGerarImagemActionPerformed
+        String labelX = qlTaSelectedX();//"umidade";
+        String labelY = qlTaSelectedY();//"temperatura";
+        if (labelX.equals(labelY)) {
+            JOptionPane.showMessageDialog(null, "Selecione eixos diferentes!", "Aviso", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        String labelZ = null;
+        int valueZ = 0;
+
+        Map<String, Integer> map = new HashMap<>();
+        map.put("estagio", 0);
+        map.put("temperatura", 0);
+        map.put("umidade", 0);
+
+        map.put(labelX, 1);
+        map.put(labelY, 1);
+
+        if (map.get("estagio") == 0) {
+            // Estagio
+            labelZ = "estagio";
+            valueZ = jSliderEstagio.getValue();
+        } else if (map.get("temperatura") == 0) {
+            // Temperatura
+            labelZ = "temperatura";
+            valueZ = jSliderTemperatura.getValue();
+        } else if (map.get("umidade") == 0) {
+            // Umidade
+            labelZ = "umidade";
+            valueZ = jSliderUmidade.getValue();
+        } else {
+            System.out.println("deu reuim");
+            return;
+        }
+
+        try {
+            FCL.plotFuzzy(labelX, labelY, labelZ, valueZ);
+        } catch (Exception ex) {
+            Logger.getLogger(Janela.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }//GEN-LAST:event_btnGerarImagemActionPerformed
+
+    private void jSliderEstagioStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSliderEstagioStateChanged
+        lblEstagioValue.setText("" + ((JSlider) evt.getSource()).getValue());
+    }//GEN-LAST:event_jSliderEstagioStateChanged
+
+    private void jSliderTemperaturaStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSliderTemperaturaStateChanged
+        lblTemperaturaValue.setText("" + ((JSlider) evt.getSource()).getValue());
+    }//GEN-LAST:event_jSliderTemperaturaStateChanged
+
+    private void jSliderUmidadeStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSliderUmidadeStateChanged
+        lblUmidadeValue.setText("" + ((JSlider) evt.getSource()).getValue());
+    }//GEN-LAST:event_jSliderUmidadeStateChanged
+
+    public static void ABRIR(){
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -160,7 +451,7 @@ public class Janela extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -185,21 +476,32 @@ public class Janela extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.ButtonGroup buttonGroup2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton4;
-    private javax.swing.JRadioButton jRadioButton5;
-    private javax.swing.JRadioButton jRadioButton6;
-    private javax.swing.JSlider jSlider1;
-    private javax.swing.JSlider jSlider2;
-    private javax.swing.JSlider jSlider3;
+    private javax.swing.JButton btnGerarGraficos;
+    private javax.swing.JButton btnGerarImagem;
+    private javax.swing.ButtonGroup buttonGroupX;
+    private javax.swing.ButtonGroup buttonGroupY;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JRadioButton jRadioButton_EstX;
+    private javax.swing.JRadioButton jRadioButton_EstY;
+    private javax.swing.JRadioButton jRadioButton_TempX;
+    private javax.swing.JRadioButton jRadioButton_TempY;
+    private javax.swing.JRadioButton jRadioButton_UmidX;
+    private javax.swing.JRadioButton jRadioButton_UmidY;
+    private javax.swing.JSlider jSliderEstagio;
+    private javax.swing.JSlider jSliderTemperatura;
+    private javax.swing.JSlider jSliderUmidade;
+    private javax.swing.JLabel lblEstagio;
+    private javax.swing.JLabel lblEstagioValue;
+    private javax.swing.JLabel lblTemperatura;
+    private javax.swing.JLabel lblTemperaturaValue;
+    private javax.swing.JLabel lblUmidade;
+    private javax.swing.JLabel lblUmidadeValue;
+    private javax.swing.JLabel lblX;
+    private javax.swing.JLabel lblY;
+    private javax.swing.JLabel nomes;
     // End of variables declaration//GEN-END:variables
 }

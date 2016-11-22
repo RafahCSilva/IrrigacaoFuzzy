@@ -19,7 +19,7 @@ import org.leores.util.data.DataTableSet;
 
 public class FCL {
 
-    public static void plotFuzzy() throws Exception {
+    public static void plotFuzzy(String labelX, String labelY, String labelZ, int valueZ) throws Exception {
 
         System.out.println("Carregando .FCL...");
         // Load from 'FCL' file
@@ -38,8 +38,8 @@ public class FCL {
         JGnuplot jg = new JGnuplot();
         JGnuplot.Plot plot = new JGnuplot.Plot("") {
             {
-                xlabel = "umidade";
-                ylabel = "temperatura";
+                xlabel = labelX;
+                ylabel = labelY;
                 zlabel = "Tempo (minutos)";
             }
         };
@@ -49,13 +49,24 @@ public class FCL {
 
         List x = new ArrayList(), y = new ArrayList(), z = new ArrayList();
 
-        for (int i = 0; i <= 100; i += 1) {
-            for (int j = 0; j <= 100; j += 1) {
+        int limitX = 100;
+        int limitY = 100;
+
+        if (labelX.equals("temperatura")) {
+            limitX = 50;
+        }
+
+        if (labelY.equals("temperatura")) {
+            limitY = 50;
+        }
+
+        for (int i = 0; i <= limitX; i += 1) {
+            for (int j = 0; j <= limitY; j += 1) {
 
                 // Set inputs
-                functionBlock.setVariable("umidade", i);
-                functionBlock.setVariable("temperatura", j);
-                functionBlock.setVariable("estagio", 40);
+                functionBlock.setVariable(labelX, i);
+                functionBlock.setVariable(labelY, j);
+                functionBlock.setVariable(labelZ, valueZ);
 
                 // Evaluate
                 fis.evaluate();
@@ -74,7 +85,7 @@ public class FCL {
         jg.execute(plot, jg.plotImage);
     }
 
-    public static void FUZZY() throws Exception {
+    public static void FUZZY(int estagio, int temperatura, int umidade) throws Exception {
         int i = 0;
 
         // Load from 'FCL' file
@@ -91,9 +102,9 @@ public class FCL {
         JFuzzyChart.get().chart(functionBlock);
 
         // Set inputs
-        functionBlock.setVariable("umidade", 35);
-        functionBlock.setVariable("temperatura", 30);
-        functionBlock.setVariable("estagio", 40);
+        functionBlock.setVariable("estagio", estagio);
+        functionBlock.setVariable("temperatura", temperatura);
+        functionBlock.setVariable("umidade", umidade);
 
         // Evaluate 
         fis.evaluate();

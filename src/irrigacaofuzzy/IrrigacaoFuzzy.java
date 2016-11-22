@@ -3,7 +3,8 @@ package irrigacaofuzzy;
 public class IrrigacaoFuzzy {
 
     public static void main(String[] args) throws Exception {
-        FCL.plotFuzzy();
+        Janela.ABRIR();
+        //FCL.plotFuzzy();
         //FCL.FUZZY();
     }
 }
