@@ -296,7 +296,7 @@ public class Janela extends javax.swing.JFrame {
             }
         });
 
-        nomes.setText("<html>\nDesenvolvido por:<br>\n<b>Erick Augusto Cruz<br>\nRafael Cardoso da Silva</b>\n</html>");
+        nomes.setText("<html>\nDesenvolvido por:<br>\n<b>\nErick Alves Augusto<br>\nRafael Cardoso da Silva\n</b>\n</html>");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);

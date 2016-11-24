@@ -20,21 +20,21 @@ import org.leores.util.data.DataTableSet;
 public class FCL {
 
     public static void plotFuzzy(String labelX, String labelY, String labelZ, int valueZ) throws Exception {
-
-        System.out.println("Carregando .FCL...");
+        System.out.println("Gerando Imagem de Densidade:");
+        System.out.println("  Carregando .FCL...");
         // Load from 'FCL' file
         String fileName = "FCL/IrrigacaoRules.fcl";
         FIS fis = FIS.load(fileName, true);
 
         if (fis == null) { // Error while loading
-            System.err.println("Can't load file: '" + fileName + "'");
+            System.err.println("  O arquivo '" + fileName + "' não pode ser aberto.");
             return;
         }
 
         // Show variables
         FunctionBlock functionBlock = fis.getFunctionBlock(null);
 
-        System.out.println("Iniciando jGNUplot...");
+        System.out.println("  Iniciando jGNUplot...");
         JGnuplot jg = new JGnuplot();
         JGnuplot.Plot plot = new JGnuplot.Plot("") {
             {
@@ -43,7 +43,7 @@ public class FCL {
                 zlabel = "Tempo (minutos)";
             }
         };
-        System.out.println("Obtendo valores...");
+        System.out.println("  Obtendo valores...");
 
         DataTableSet dts = plot.addNewDataTableSet("Irrigação Fuzzy");
 
@@ -81,7 +81,7 @@ public class FCL {
 
         dts.addNewDataTable("tempo", x, y, z);
 
-        System.out.println("Desenhando Grafico....");
+        System.out.println("  Desenhando Grafico....");
         jg.execute(plot, jg.plotImage);
     }
 
@@ -89,11 +89,11 @@ public class FCL {
         int i = 0;
 
         // Load from 'FCL' file
-        String fileName = "FCL\\IrrigacaoRules.fcl";
+        String fileName = "FCL/IrrigacaoRules.fcl";
         FIS fis = FIS.load(fileName, true);
 
         if (fis == null) { // Error while loading
-            System.err.println("Can't load file: '" + fileName + "'");
+            System.err.println("  O arquivo '" + fileName + "' não pode ser aberto.");
             return;
         }
 
@@ -239,7 +239,7 @@ public class FCL {
 
     }
 
-    // https://github.com/mleoking/JavaGnuplotHybrid
+    // Exemplo obtido em https://github.com/mleoking/JavaGnuplotHybrid
     public void plotImage() {
         JGnuplot jg = new JGnuplot();
         Plot plot = new Plot("") {
