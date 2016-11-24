@@ -3,6 +3,7 @@ package irrigacaofuzzy;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 import net.sourceforge.jFuzzyLogic.FIS;
 import net.sourceforge.jFuzzyLogic.FunctionBlock;
@@ -36,13 +37,11 @@ public class FCL {
 
         System.out.println("  Iniciando jGNUplot...");
         JGnuplot jg = new JGnuplot();
-        JGnuplot.Plot plot = new JGnuplot.Plot("") {
-            {
-                xlabel = labelX;
-                ylabel = labelY;
-                zlabel = "Tempo (minutos)";
-            }
-        };
+        JGnuplot.Plot plot = new JGnuplot.Plot("");
+        plot.xlabel = labelX;
+        plot.ylabel = labelY;
+        plot.zlabel = "Tempo (minutos)";
+
         System.out.println("  Obtendo valores...");
 
         DataTableSet dts = plot.addNewDataTableSet("Irrigação Fuzzy");
@@ -115,7 +114,7 @@ public class FCL {
          * das variaveis lingui�sticas de entrada
          * ===============================================
          */
-        /*System.out.println("--------------------------");
+ /*System.out.println("--------------------------");
          System.out.println("FASE DE FUZZIFICACAO");
          System.out.println("--------------------------");
          double servicoRuim = functionBlock.getVariable("servico").getMembership("ruim");
@@ -129,11 +128,11 @@ public class FCL {
          double refeicaoDeliciosa = functionBlock.getVariable("refeicao").getMembership("deliciosa");
          System.out.println("\nrefeicao(rancosa):" + refeicaoRancosa);
          System.out.println("refeicao(deliciosa):" + refeicaoDeliciosa);     */
-        /* ===============================================
+ /* ===============================================
          * FIM DA FASE DE FUZZIFICACAO
          * ===============================================
          */
-        /* ===============================================
+ /* ===============================================
          * METODOS DE AGREGACAO
          * Aplicar os operadores fuzzy AND (t-norma) 
          * OR (t-conorma) nos antecedentes das regras
@@ -177,7 +176,7 @@ public class FCL {
          * FIM DA APLICACAO DOS METODOS DE AGREGACAO
          * ===============================================
          */
-        /* ===============================================
+ /* ===============================================
          * METODOS DE ATIVACAO
          * Definir como os antecedentes de uma regra 
          * modificam os consequentes.
@@ -201,7 +200,7 @@ public class FCL {
          * FIM DOS METODOS DE ATIVACAO
          * ==============================================
          */
-        /* ===============================================
+ /* ===============================================
          * METODO DE ACUMULACAO
          * Os conjuntos fuzzy que representam as saidas
          * das regras sao combinados em um unico conjunto
@@ -221,7 +220,7 @@ public class FCL {
          * ===============================================
          */
 
-        /* ===============================================
+ /* ===============================================
          * METODO DE DEFUZZIFICACAO
          * ===============================================
          */
@@ -236,6 +235,39 @@ public class FCL {
          * FIM DO METODO DE DEFUZZIFICACAO
          * ===============================================
          */
+
+    }
+
+    static void CALCULAR(int estagio, int temperatura, int umidade) {
+        System.out.println("Calculando o Tempo:");
+        System.out.println("  Carregando .FCL...");
+        // Load from 'FCL' file
+        String fileName = "FCL/IrrigacaoRules.fcl";
+        FIS fis = FIS.load(fileName, true);
+
+        if (fis == null) { // Error while loading
+            System.err.println("  O arquivo '" + fileName + "' não pode ser aberto.");
+            return;
+        }
+
+        // Show variables
+        FunctionBlock functionBlock = fis.getFunctionBlock(null);
+
+        // Set inputs
+        functionBlock.setVariable("estagio", estagio);
+        functionBlock.setVariable("temperatura", temperatura);
+        functionBlock.setVariable("umidade", umidade);
+
+        // Evaluate
+        fis.evaluate();
+
+        double tempo = fis.getVariable("tempo").getValue();
+
+        int min = (int) tempo;
+        int seg = (int) (60 / (int) ((tempo - min) * 100));
+
+        String msg = String.format("O Tempo será %d minutos e %d segundos", min, seg);
+        JOptionPane.showMessageDialog(null, msg, "Resultado", JOptionPane.INFORMATION_MESSAGE);
 
     }
 
