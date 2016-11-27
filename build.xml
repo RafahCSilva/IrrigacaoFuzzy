@@ -37,7 +37,7 @@
         <target name="-post-compile">
             <obfuscate>
                 <fileset dir="${build.classes.dir}"/>
-            </obfuscate>
+            </obfuscate> 
         </target>
 
     For list of available properties check the imported 
@@ -70,4 +70,7 @@
     nbproject/build-impl.xml file. 
 
     -->
+    <target name="-post-compile">
+        <copy file="FCL/IrrigacaoRules.fcl" todir="${dist.dir}/FCL"/>   
+    </target>
 </project>

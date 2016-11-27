@@ -144,7 +144,7 @@ public class Janela extends javax.swing.JFrame {
 
         lblTemperaturaValue.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblTemperaturaValue.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblTemperaturaValue.setText("25");
+        lblTemperaturaValue.setText("33");
 
         lblUmidadeValue.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblUmidadeValue.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -161,12 +161,14 @@ public class Janela extends javax.swing.JFrame {
             }
         });
 
-        jSliderTemperatura.setMajorTickSpacing(10);
+        jSliderTemperatura.setMajorTickSpacing(5);
         jSliderTemperatura.setMaximum(50);
+        jSliderTemperatura.setMinimum(15);
         jSliderTemperatura.setMinorTickSpacing(5);
         jSliderTemperatura.setPaintLabels(true);
         jSliderTemperatura.setPaintTicks(true);
-        jSliderTemperatura.setValue(25);
+        jSliderTemperatura.setToolTipText("");
+        jSliderTemperatura.setValue(33);
         jSliderTemperatura.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 jSliderTemperaturaStateChanged(evt);
@@ -297,9 +299,10 @@ public class Janela extends javax.swing.JFrame {
             }
         });
 
-        btnCalcular.setIcon(new javax.swing.ImageIcon(getClass().getResource("/irrigacaofuzzy/icons/fa-calculator_48.png"))); // NOI18N
+        btnCalcular.setIcon(new javax.swing.ImageIcon(getClass().getResource("/irrigacaofuzzy/icons/fa-calculator_36.png"))); // NOI18N
         btnCalcular.setText("<html>Calcular<br />Tempo</html>");
-        btnCalcular.setToolTipText("Clique aqui para gerar todos os gráficos das variaveis fuzzy.");
+        btnCalcular.setToolTipText("Clique aqui para calcular o Tempo para estes parametros.");
+        btnCalcular.setPreferredSize(new java.awt.Dimension(111, 57));
         btnCalcular.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCalcularActionPerformed(evt);
@@ -314,7 +317,7 @@ public class Janela extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(nomes, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
+                .addComponent(nomes, javax.swing.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(btnCalcular, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(8, 8, 8)
