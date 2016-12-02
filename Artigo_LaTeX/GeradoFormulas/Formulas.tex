@@ -1,0 +1,233 @@
+\documentclass[12pt,a4paper,oneside]{article}
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\author{RCS}
+\title{Formulas}
+\begin{document}
+  
+\section{BASE}
+$$
+\\ \\ \\
+T_{BASE} = \left\{
+\begin{array}{lll}
+\frac{x-A}{B-A} & se & A \leqslant x \leqslant B \\
+\frac{D-x}{D-C} & se & C \leqslant x \leqslant D \\
+0 & \multicolumn{2}{l}{caso~contrario}
+\end{array}
+\right.
+$$
+
+
+\section{Umidade}
+
+$$
+\\ \\ \\
+T_{muito~baixa} = \left\{
+\begin{array}{lll}
+1 & se & 0 \leqslant x \leqslant 35 \\
+\frac{44 - x}{44 - 35} & se & 35 \leqslant x \leqslant 44 \\
+0 & \multicolumn{2}{l}{caso~contrario}
+\end{array}
+\right.
+$$
+
+$$
+\\ \\ \\
+T_{baixa} = \left\{
+\begin{array}{lll}
+\frac{x - 35}{44 - 35} & se & 35 \leqslant x \leqslant 44 \\
+\frac{53 - x}{53 - 44} & se & 44 \leqslant x \leqslant 53 \\
+0 & \multicolumn{2}{l}{caso~contrario}
+\end{array}
+\right.
+$$
+
+$$
+\\ \\ \\
+T_{media} = \left\{
+\begin{array}{lll}
+\frac{x - 44}{53 - 44} & se & 44 \leqslant x \leqslant 53 \\
+\frac{62 - x}{62 - 53} & se & 53 \leqslant x \leqslant 62 \\
+0 & \multicolumn{2}{l}{caso~contrario}
+\end{array}
+\right.
+$$
+
+$$
+\\ \\ \\
+T_{alta} = \left\{
+\begin{array}{lll}
+\frac{x - 53}{62 - 53} & se & 53 \leqslant x \leqslant 62 \\
+\frac{71 - x}{71 - 62} & se & 62 \leqslant x \leqslant 71 \\
+0 & \multicolumn{2}{l}{caso~contrario}
+\end{array}
+\right.
+$$
+
+$$
+\\ \\ \\
+T_{muito~alta} = \left\{
+\begin{array}{lll}
+\frac{x - 62}{71 - 62} & se & 62 \leqslant x \leqslant 71 \\
+1 & se & 71 \leqslant x \leqslant 100 \\
+0 & \multicolumn{2}{l}{caso~contrario}
+\end{array}
+\right.
+$$
+
+
+\section{Temperatura}
+
+$$
+\\ \\ \\
+T_{muito~baixa} = \left\{
+\begin{array}{lll}
+1 & se & 15 \leqslant x \leqslant 20.8 \\
+\frac{26.65 - x}{26.65 - 20.8} & se & 20.8 \leqslant x \leqslant 26.65 \\
+0 & \multicolumn{2}{l}{caso~contrario}
+\end{array}
+\right.
+$$
+
+$$
+\\ \\ \\
+T_{baixa} = \left\{
+\begin{array}{lll}
+\frac{x - 20.8}{26.65 - 20.8} & se & 20.8 \leqslant x \leqslant 26.65 \\
+\frac{32.5 - x}{32.5 - 26.65} & se & 26.65 \leqslant x \leqslant 32.5 \\
+0 & \multicolumn{2}{l}{caso~contrario}
+\end{array}
+\right.
+$$
+
+$$
+\\ \\ \\
+T_{media} = \left\{
+\begin{array}{lll}
+\frac{x - 26.65}{32.5 - 26.65} & se & 26.65 \leqslant x \leqslant 32.5 \\
+\frac{38.3 - x}{38.3 - 32.5} & se & 32.5 \leqslant x \leqslant 38.3 \\
+0 & \multicolumn{2}{l}{caso~contrario}
+\end{array}
+\right.
+$$
+
+$$
+\\ \\ \\
+T_{alta} = \left\{
+\begin{array}{lll}
+\frac{x - 32.5}{38.3 - 32.5} & se & 32.5 \leqslant x \leqslant 38.3 \\
+\frac{44.15 - x}{44.15 - 38.3} & se & 38.3 \leqslant x \leqslant 44.15 \\
+0 & \multicolumn{2}{l}{caso~contrario}
+\end{array}
+\right.
+$$
+
+$$
+\\ \\ \\
+T_{muito~alta} = \left\{
+\begin{array}{lll}
+\frac{x - 38.3}{44.15 - 38.3} & se & 38.3 \leqslant x \leqslant 44.15 \\
+1 & se & 44.15 \leqslant x \leqslant 50 \\
+0 & \multicolumn{2}{l}{caso~contrario}
+\end{array}
+\right.
+$$
+
+
+\section{Estágio}
+
+$$
+\\ \\ \\
+T_{crescimento} = \left\{
+\begin{array}{lll}
+1 & se & 0 \leqslant x \leqslant 53 \\
+\frac{75 - x}{75 - 53} & se & 53 \leqslant x \leqslant 75 \\
+0 & \multicolumn{2}{l}{caso~contrario}
+\end{array}
+\right.
+$$
+
+$$
+\\ \\ \\
+T_{desenvolvimento} = \left\{
+\begin{array}{lll}
+\frac{x - 53}{75 - 53} & se & 53 \leqslant x \leqslant 75 \\
+\frac{98 - x}{98 - 75} & se & 75 \leqslant x \leqslant 98 \\
+0 & \multicolumn{2}{l}{caso~contrario}
+\end{array}
+\right.
+$$
+
+$$
+\\ \\ \\
+T_{maturacao} = \left\{
+\begin{array}{lll}
+\frac{x - 75}{98 - 75} & se & 75 \leqslant x \leqslant 98 \\
+1 & se & 98 \leqslant x \leqslant 100 \\
+0 & \multicolumn{2}{l}{caso~contrario}
+\end{array}
+\right.
+$$
+
+
+\section{Tempo}
+
+$$
+\\ \\ \\
+T_{muito~curto} = \left\{
+\begin{array}{lll}
+1 & se & 0 \leqslant x \leqslant 3.3 \\
+\frac{6.6 - x}{6.6 - 3.3} & se & 3.3 \leqslant x \leqslant 6.6 \\
+0 & \multicolumn{2}{l}{caso~contrario}
+\end{array}
+\right.
+$$
+
+$$
+\\ \\ \\
+T_{curto} = \left\{
+\begin{array}{lll}
+\frac{x - 3.3}{6.6 - 3.3} & se & 3.3 \leqslant x \leqslant 6.6 \\
+\frac{10 - x}{10 - 6.6} & se & 6.6 \leqslant x \leqslant 10 \\
+0 & \multicolumn{2}{l}{caso~contrario}
+\end{array}
+\right.
+$$
+
+$$
+\\ \\ \\
+T_{medio} = \left\{
+\begin{array}{lll}
+\frac{x - 6.6}{10 - 6.6} & se & 6.6 \leqslant x \leqslant 10 \\
+\frac{13.3 - x}{13.3 - 10} & se & 10 \leqslant x \leqslant 13.3 \\
+0 & \multicolumn{2}{l}{caso~contrario}
+\end{array}
+\right.
+$$
+
+$$
+\\ \\ \\
+T_{longo} = \left\{
+\begin{array}{lll}
+\frac{x - 10}{13.3 - 10} & se & 10 \leqslant x \leqslant 13.3 \\
+\frac{16.6 - x}{16.6 - 13.3} & se & 13.3 \leqslant x \leqslant 16.6 \\
+0 & \multicolumn{2}{l}{caso~contrario}
+\end{array}
+\right.
+$$
+
+$$
+\\ \\ \\
+T_{muito~longo} = \left\{
+\begin{array}{lll}
+\frac{x - 13.3}{16.6 - 13.3} & se & 13.3 \leqslant x \leqslant 16.6 \\
+1 & se & 16.6 \leqslant x \leqslant 20 \\
+0 & \multicolumn{2}{l}{caso~contrario}
+\end{array}
+\right.
+$$
+
+\end{document}
