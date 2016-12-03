@@ -2,6 +2,7 @@ package irrigacaofuzzy;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 import javax.swing.JOptionPane;
 
 import net.sourceforge.jFuzzyLogic.FIS;
@@ -54,7 +55,7 @@ public class FCL {
         int maxY = 100;
 
         if (labelX.equals("temperatura")) {
-            minX = 14;
+            minX = 15;
             maxX = 50;
         }
 
@@ -120,7 +121,7 @@ public class FCL {
 
     }
 
-    static void CALCULAR(int estagio, int temperatura, int umidade) {
+    public static void CALCULAR(int estagio, int temperatura, int umidade) {
         System.out.println("Calculando o Tempo:");
 
         // Show variables
@@ -141,5 +142,63 @@ public class FCL {
 
         String msg = String.format("O Tempo será %d minutos e %d segundos", min, seg);
         JOptionPane.showMessageDialog(null, msg, "Resultado", JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    public static void console() {
+        System.out.println("Modo console ativado!\n\n");
+
+        int estagio, temperatura, umidade;
+        Scanner s = new Scanner(System.in);
+        while (true) {
+            System.out.println("Digite o valores de entrada para as variáveis a seguir");
+            // ler entradas
+            do {
+                System.out.print("  Estágio (entre 0 e 100): ");
+                estagio = s.nextInt();
+                if (estagio >= 0 && estagio <= 100) {
+                    break;
+                }
+                System.out.println("    valor incorreto... digite novamente");
+            } while (true);
+
+            do {
+                System.out.print("  Temperatura (entre 15 e 50): ");
+                temperatura = s.nextInt();
+                if (temperatura >= 15 && temperatura <= 50) {
+                    break;
+                }
+                System.out.println("    valor incorreto... digite novamente");
+            } while (true);
+
+            do {
+                System.out.print("  Umidade (entre 0 e 100): ");
+                umidade = s.nextInt();
+                if (umidade >= 0 && umidade <= 100) {
+                    break;
+                }
+                System.out.println("    valor incorreto... digite novamente");
+            } while (true);
+
+            System.out.println("Calculando o Tempo....");
+
+            // Show variables
+            FunctionBlock functionBlock = fis.getFunctionBlock(null);
+
+            // Set inputs
+            functionBlock.setVariable("estagio", estagio);
+            functionBlock.setVariable("temperatura", temperatura);
+            functionBlock.setVariable("umidade", umidade);
+
+            // Evaluate
+            fis.evaluate();
+
+            double tempo = fis.getVariable("tempo").getValue();
+
+            int min = (int) tempo;
+            int seg = (int) (60 / (int) ((tempo - min) * 100));
+
+            String msg = String.format("O Tempo será %d minutos e %d segundos\n", min, seg);
+            System.out.println(msg);
+        }
     }
 }
